@@ -11,6 +11,7 @@ const SidebarNav = styled.div`
   left: ${({ sidebar }) => (sidebar? '0' : '-100%')};
   z-index: 1000;
   height: 660px;
+  transition-duration: 0.8s;
 `;
 
 export const Sidebar = ({ sidebar,showSidebar,setSidebar}) => {
@@ -117,6 +118,7 @@ export const Sidebar = ({ sidebar,showSidebar,setSidebar}) => {
               className="inline-block w-full py-2 pl-8 pr-4 text-xs rounded hover:bg-lime-600 focus:outline-none focus:ring-1 focus:ring-gray-500 focus:bg-gray-800">
                 Apps
             </Link>
+            
           </li>
         </ul>
       </div>
