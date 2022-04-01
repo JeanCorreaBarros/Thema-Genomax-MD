@@ -6,7 +6,6 @@ import { VscBellDot } from "react-icons/vsc";
 import ModalButtonMas from "../modals/ModalButtonMas";
 import ModalNotificacion from "../modals/ModalNotificacion";
 import ModalPerfil from "../modals/ModalPerfil";
-import "./Navbar.css";
 import { Sidebar } from "../sidebar/Sidebar";
 import { useClickOutside } from "../../services/Mause";
 import perfil from "../../assets/img/perfil.png";
@@ -33,7 +32,7 @@ const Navbar = (props) => {
     });
 
     return (
-      <div ref={domNode} className="nav-item">
+      <div ref={domNode} className="items-center justify-center flex">
         <button onClick={() => setIsOpen((isOpen) => !isOpen)} type="button">
           {props.img}
           {props.icon}
@@ -73,20 +72,20 @@ const Navbar = (props) => {
             </a>
           </div>
 
-          <div className="w-0 h-0 sm:w-12 sm:h-12 sm:flex sm:justify-center sm:items-center sm:rounded-3xl sm:hover:bg-lime-700 ">
-            <NavItem icon={<BiPlusCircle className="opciones" />}>
+          <div className=" hidden sm:w-12 sm:h-12 sm:flex sm:justify-center sm:items-center sm:rounded-3xl sm:hover:bg-lime-700 ">
+            <NavItem icon={<BiPlusCircle className="text-white text-xl" />}>
               <ModalButtonMas />
             </NavItem>
           </div>
         </div>
 
-        <div className="flex justify-center items-between gap-x-12 pr-5">
-          <div className=" w-12 h-12 flex justify-center  items-center rounded-3xl hover:bg-lime-700">
+        <div className="sm:flex sm:justify-center sm:items-between sm:gap-x-12 sm:pr-5">
+          <div className=" hidden sm:w-12 sm:h-12 sm:flex sm:justify-center  sm:items-center sm:rounded-3xl sm:hover:bg-lime-700">
             <button
               onClick={showNoti}
-              className="text-white  w-12 h-12 flex justify-center items-center rounded-3xl hover:bg-lime-700 "
+              className="sm:text-white  sm:w-12 sm:h-12 sm:flex sm:justify-center sm:items-center sm:rounded-3xl sm:hover:bg-lime-700 "
             >
-              <VscBellDot className="text-xl text-white " />
+              <VscBellDot className="text-xl"/>
             </button>
           </div>
           <ModalNotificacion

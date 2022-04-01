@@ -17,7 +17,7 @@ const ModalNotificacion = ({ noti, setNoti }) => {
     <Notificacion
       ref={domNode}
       noti={noti}
-      className="w-64 bg-gray-50 absolute "
+      className="w-1/5 bg-gray-50 absolute"
     >
       <div className="modal_notificacion flex justify-center pt-5 ">
         <div className="w-11/12 rounded-xl h-20 bg-gray-300 bg-gradient-to-r from-cyan-500 to-blue-500">

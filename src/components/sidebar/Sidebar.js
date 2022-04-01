@@ -1,41 +1,56 @@
-import React from 'react';
-import img from '../../assets/img/empresa.jpg'
-import styled from 'styled-components';
-import {Link }from 'react-router-dom'
-import { SidebarData } from './SidebarData';
-import { FaBars } from "react-icons/fa"
-import ItemsMenu from './submenu/ItemsMenu';
-import {useClickOutside} from '../../services/Mause'
+import React, { useState } from "react";
+import { VscBellDot } from "react-icons/vsc";
+import img from "../../assets/img/empresa.jpg";
+import styled from "styled-components";
+import { Link } from "react-router-dom";
+import { SidebarData } from "./SidebarData";
+import { FaBars } from "react-icons/fa";
+import ItemsMenu from "./submenu/ItemsMenu";
+import { useClickOutside } from "../../services/Mause";
+import ModalNotificacion from "../modals/ModalNotificacion";
 
 const SidebarNav = styled.div`
-  left: ${({ sidebar }) => (sidebar? '0' : '-100%')};
+  left: ${({ sidebar }) => (sidebar ? "0" : "-100%")};
   z-index: 1000;
   height: 660px;
   transition-duration: 0.8s;
 `;
 
-export const Sidebar = ({ sidebar,showSidebar,setSidebar}) => {
-  let domNode = useClickOutside(() => {
-    setSidebar(false)
-  });
- 
-  return (
-    <SidebarNav ref={domNode} sidebar={sidebar} className="w-64 bg-gray-50 absolute " >
 
+export const Sidebar = ({ sidebar, showSidebar, setSidebar }) => {
+  let domNode = useClickOutside(() => {
+    setSidebar(false);
+  });
+
+  const [noti, setNoti] = useState(false);
+  const showNoti = () => {
+    console.log(noti);
+    setNoti(!noti);
+  };
+
+  return (
+    <SidebarNav
+      ref={domNode}
+      sidebar={sidebar}
+      className="w-64 bg-gray-50 absolute "
+    >
       <div className=" h-40 flex flex-col justify-center bg-gray-200 item-center ">
-        <button  className="text-lime-700 ml-8">
-          <FaBars  onClick={showSidebar} />
+        <button className="text-lime-700 ml-8">
+          <FaBars onClick={showSidebar} />
         </button>
-        <div className='flex justify-center items-center'>
-          <img alt=""  src={img} className="w-14 h-14 rounded-xl"/>
+        <div className="flex justify-center items-center">
+          <img alt="" src={img} className="w-14 h-14 rounded-xl" />
         </div>
-        <div className='flex flex-col justify-center pt-2'>
-          <span className="text-sm text-gray-900  text-center text-bold">Nexus Soluciones</span>
-          <span className="text-xs text-gray-900  text-center">NIT.9011668092</span>
+        <div className="flex flex-col justify-center pt-2">
+          <span className="text-sm text-gray-900  text-center text-bold">
+            Nexus Soluciones
+          </span>
+          <span className="text-xs text-gray-900  text-center">
+            NIT.9011668092
+          </span>
         </div>
       </div>
-      
-     
+
       <div className="px-6 pt-4 overflow-y-scroll overflow-hidden w-64 h-80">
         <ul className="flex flex-col space-y-2">
           {SidebarData.map((item, index) => {
@@ -51,10 +66,12 @@ export const Sidebar = ({ sidebar,showSidebar,setSidebar}) => {
       <div className="px-6 pt-4 pb-8">
         <ul>
           <li className="relative text-lime-700 hover:text-white focus-within:text-white">
-            <div
-              className="absolute inset-y-0 left-0 flex items-center pl-2 pointer-events-none"
-            >
-              <svg className="w-5 h-5 stroke-current" fill="none" viewBox="0 0 24 24">
+            <div className="absolute inset-y-0 left-0 flex items-center pl-2 pointer-events-none">
+              <svg
+                className="w-5 h-5 stroke-current"
+                fill="none"
+                viewBox="0 0 24 24"
+              >
                 <path
                   stroke="currentColor"
                   strokeLinecap="round"
@@ -73,56 +90,28 @@ export const Sidebar = ({ sidebar,showSidebar,setSidebar}) => {
             </div>
             <Link
               to=""
-              className="inline-block w-full py-2 pl-8 pr-4 text-xs rounded hover:bg-lime-600 focus:outline-none focus:ring-1 focus:ring-gray-500 focus:bg-gray-800">
-                Soporte
+              className="inline-block w-full py-2 pl-8 pr-4 text-xs rounded hover:bg-lime-600 focus:outline-none focus:ring-1 focus:ring-gray-500 focus:bg-gray-800"
+            >
+              Soporte
             </Link>
           </li>
-          
+
           <li className="relative text-lime-700 hover:text-white focus-within:text-white">
-            <div
-              className="absolute inset-y-0 left-0 flex items-center pl-2 pointer-events-none"
-            >
-              <svg className="w-5 h-5 stroke-current" fill="none" viewBox="0 0 24 24">
-                <path
-                  stroke="currentColor"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth="1.5"
-                  d="M4.75 5.75C4.75 5.19772 5.19772 4.75 5.75 4.75H9.25C9.80228 4.75 10.25 5.19772 10.25 5.75V9.25C10.25 9.80228 9.80228 10.25 9.25 10.25H5.75C5.19772 10.25 4.75 9.80228 4.75 9.25V5.75Z"
-                ></path>
-                <path
-                  stroke="currentColor"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth="1.5"
-                  d="M4.75 14.75C4.75 14.1977 5.19772 13.75 5.75 13.75H9.25C9.80228 13.75 10.25 14.1977 10.25 14.75V18.25C10.25 18.8023 9.80228 19.25 9.25 19.25H5.75C5.19772 19.25 4.75 18.8023 4.75 18.25V14.75Z"
-                ></path>
-                <path
-                  stroke="currentColor"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth="1.5"
-                  d="M13.75 5.75C13.75 5.19772 14.1977 4.75 14.75 4.75H18.25C18.8023 4.75 19.25 5.19772 19.25 5.75V9.25C19.25 9.80228 18.8023 10.25 18.25 10.25H14.75C14.1977 10.25 13.75 9.80228 13.75 9.25V5.75Z"
-                ></path>
-                <path
-                  stroke="currentColor"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth="1.5"
-                  d="M13.75 14.75C13.75 14.1977 14.1977 13.75 14.75 13.75H18.25C18.8023 13.75 19.25 14.1977 19.25 14.75V18.25C19.25 18.8023 18.8023 19.25 18.25 19.25H14.75C14.1977 19.25 13.75 18.8023 13.75 18.25V14.75Z"
-                ></path>
-              </svg>
+            <div className="absolute inset-y-0 left-0 flex items-center pl-2 pointer-events-none">
+              <button onClick={showNoti}>
+                <VscBellDot className="text-base" />
+              </button>
             </div>
             <Link
               to=""
-              className="inline-block w-full py-2 pl-8 pr-4 text-xs rounded hover:bg-lime-600 focus:outline-none focus:ring-1 focus:ring-gray-500 focus:bg-gray-800">
-                Apps
+              className="inline-block w-full py-2 pl-8 pr-4 text-xs rounded hover:bg-lime-600 focus:outline-none focus:ring-1 focus:ring-gray-500 focus:bg-gray-800"
+            >
+              notification
             </Link>
-            
           </li>
         </ul>
       </div>
-      
+      <ModalNotificacion noti={noti} setNoti={setNoti} />
     </SidebarNav>
-  )
-}
+  );
+};
