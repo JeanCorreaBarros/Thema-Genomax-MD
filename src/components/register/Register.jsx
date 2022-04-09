@@ -45,7 +45,23 @@ const Register = (props) => {
     }
   }
 
+  
 
+ /* function validarFormulario(e) {
+    e.preventDefault();
+    var elemento = document.forms['miForm']['micheckbox'].checked;
+    // eslint-disable-next-line eqeqeq
+    if(elemento == true) {
+      console.log('Aceptastes nuestros terminos y condiciones'); 
+      return false;
+    }
+    else{
+      window.alert("Debes aceptar nuestros terminos y condiciones");
+      return false;
+    }
+  }
+
+*/
     return (
       <div className=' w-full my-4 md:mt-4 md:w-3/5 h-full flex flex-col justify-center items-center'>
       <div className=' relative -top-9 md:-top-10'>
@@ -55,7 +71,7 @@ const Register = (props) => {
           <h1 className='w-full font-bold text-xl text-gray-600'>Registrarme</h1>
           <hr className='border-solid  border-2 border-gray-600 mt-2 w-8'></hr>
         </div>
-        <form onSubmit={handleSubmit} className='w-full grid place-content-center'>
+        <form name='miForm' onSubmit={handleSubmit} className='w-full grid place-content-center'>
           <div className='flex flex-col mb-4 '>
             <label htmlFor="email" className='font-semibold pb-2'>Usuario</label>
             <input 
@@ -79,7 +95,7 @@ const Register = (props) => {
             />
           </div>
           <div className='w-72 md:w-80 mb-4'>
-              <p className='text-sm text-center'>Al hacer clic en Registrarse, indicas que has leído y aceptas los <Link to="http://" className='text-blue-700'>Términos y condiciones</Link></p>
+              <input type="checkbox" name="micheckbox" id="miId" value="second_checkbox"/> <label htmlFor="" className='text-sm'>Has clic en registrarme y acepta nuestros</label> <label for="cbox2"><Link to="http://" className='text-blue-700 text-sm'> Términos y condiciones</Link></label>
           </div>
           <button className="w-72 md:w-80 h-10 bg-green-400 text-white hover:bg-green-500  rounded mb-4">Registrarme</button>
         </form>

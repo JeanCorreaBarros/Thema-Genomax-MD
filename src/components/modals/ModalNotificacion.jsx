@@ -21,7 +21,7 @@ const ModalNotificacion = ({ noti, setNoti }) => {
     >
       <div className="modal_notificacion flex justify-center pt-5 ">
         <div className="w-11/12 rounded-xl h-20 bg-gray-300 bg-gradient-to-r from-cyan-500 to-blue-500">
-          <div className=" w-full h-full flex flex-col  justify-center items-center  ">
+          <div className=" w-full h-full flex flex-col  justify-center items-center bg-blue-500 rounded  ">
             <h3 className="font-semibold text-lg">Notificaciones</h3>
             <span>
               Usted Tiene<span className="text-red-600"> 2 </span> Nuevos

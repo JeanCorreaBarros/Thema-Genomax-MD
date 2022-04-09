@@ -52,6 +52,7 @@ const Navbar = (props) => {
     console.log(noti)
     setNoti(!noti);
   };
+ 
 
   const user = JSON.parse(localStorage.getItem("user"));
 
@@ -67,7 +68,7 @@ const Navbar = (props) => {
           </button>
 
           <div className="w-40 h-12 flex justify-center items-center text-white">
-            <a href={"/"} className="">
+            <a href={"/"} className={` ${sidebar ? "hidden" : ""} relative right-5`}>
               GenomaX MD
             </a>
           </div>

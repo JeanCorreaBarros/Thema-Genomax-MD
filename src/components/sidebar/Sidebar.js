@@ -8,14 +8,16 @@ import { FaBars } from "react-icons/fa";
 import ItemsMenu from "./submenu/ItemsMenu";
 import { useClickOutside } from "../../services/Mause";
 import ModalNotificacion from "../modals/ModalNotificacion";
+import './DiseñoScroll.css';
 
-const SidebarNav = styled.div`
+
+const SidebarNav = styled.nav`
   left: ${({ sidebar }) => (sidebar ? "0" : "-100%")};
   z-index: 1000;
-  height: 660px;
+  height: 700px;
   transition-duration: 0.8s;
+  position: fixed;
 `;
-
 
 export const Sidebar = ({ sidebar, showSidebar, setSidebar }) => {
   let domNode = useClickOutside(() => {
@@ -32,26 +34,24 @@ export const Sidebar = ({ sidebar, showSidebar, setSidebar }) => {
     <SidebarNav
       ref={domNode}
       sidebar={sidebar}
-      className="w-64 bg-gray-50 absolute "
+      className="bg-neutral-50 absolute "
     >
-      <div className=" h-40 flex flex-col justify-center bg-gray-200 item-center ">
-        <button className="text-lime-700 ml-8">
-          <FaBars onClick={showSidebar} />
+      <div className=" bg-neutral-800 " style={{height:`55px`, backgroundColor:`#66A31C`}}>
+        <button className="flex text-white h-full relative top-4 ml-8 justify-center item-center">
+          <FaBars onClick={showSidebar} className="relative top-1 left-3.5"/>
+          <p className="left-16 relative"> GenomaX MD</p>  
         </button>
-        <div className="flex justify-center items-center">
-          <img alt="" src={img} className="w-14 h-14 rounded-xl" />
         </div>
-        <div className="flex flex-col justify-center pt-2">
-          <span className="text-sm text-gray-900  text-center text-bold">
+        <div className="flex justify-center bg-neutral-800" style={{width:`228px`}}>
+          <img alt="" src={img} className="w-14 h-14 mt-4 rounded-xl" />
+        </div>
+        <div className="  flex flex-col justify-center pt-2 bg-neutral-800">
+          <span className="text-sm text-gray-300  pt-1 text-center text-bold">
             Nexus Soluciones
           </span>
-          <span className="text-xs text-gray-900  text-center">
-            NIT.9011668092
-          </span>
         </div>
-      </div>
 
-      <div className="px-6 pt-4 overflow-y-scroll overflow-hidden w-64 h-80">
+      <div className="contenedor bg-neutral-800">
         <ul className="flex flex-col space-y-2">
           {SidebarData.map((item, index) => {
             return <ItemsMenu item={item} key={index} />;
@@ -59,16 +59,16 @@ export const Sidebar = ({ sidebar, showSidebar, setSidebar }) => {
         </ul>
       </div>
 
-      <div className="px-6 pt-8">
-        <hr className="border-gray-700" />
+      <div className="px-6 pt-8 bg-neutral-800" style={{width:`228px`}}>
+        <hr className="border-gray-300" />
       </div>
 
-      <div className="px-6 pt-4 pb-8">
+      <div className="h-full pt-4 pb-8 bg-neutral-800" style={{width:`228px`}}>
         <ul>
-          <li className="relative text-lime-700 hover:text-white focus-within:text-white">
+          <li className="relative text-gray-300 hover:text-white focus-within:text-white">
             <div className="absolute inset-y-0 left-0 flex items-center pl-2 pointer-events-none">
               <svg
-                className="w-5 h-5 stroke-current"
+                className="w-5 h-5 text-base stroke-current"
                 fill="none"
                 viewBox="0 0 24 24"
               >
@@ -90,13 +90,13 @@ export const Sidebar = ({ sidebar, showSidebar, setSidebar }) => {
             </div>
             <Link
               to=""
-              className="inline-block w-full py-2 pl-8 pr-4 text-xs rounded hover:bg-lime-600 focus:outline-none focus:ring-1 focus:ring-gray-500 focus:bg-gray-800"
+              className="inline-block w-full py-2 pl-10 pr-4 text-base rounded hover:bg-neutral-900 focus:outline-none focus:ring-1 focus:ring-gray-500 focus:bg-neutral-900"
             >
               Soporte
             </Link>
           </li>
 
-          <li className="relative text-lime-700 hover:text-white focus-within:text-white">
+          <li className="relative text-gray-300 hover:text-white focus-within:text-white">
             <div className="absolute inset-y-0 left-0 flex items-center pl-2 pointer-events-none">
               <button onClick={showNoti}>
                 <VscBellDot className="text-base" />
@@ -104,7 +104,7 @@ export const Sidebar = ({ sidebar, showSidebar, setSidebar }) => {
             </div>
             <Link
               to=""
-              className="inline-block w-full py-2 pl-8 pr-4 text-xs rounded hover:bg-lime-600 focus:outline-none focus:ring-1 focus:ring-gray-500 focus:bg-gray-800"
+              className="inline-block w-full h-full py-2 pl-9 pr-4 text-base rounded hover:bg-neutral-900 focus:outline-none focus:ring-1 focus:ring-gray-500 focus:bg-neutral-900"
             >
               notification
             </Link>
