@@ -22,8 +22,8 @@ const PasoTres = (props) => {
       </video>
       </div>
       <div className="w-full h-16 flex justify-between items-center ">
-        <button onClick={props.pasoAtras}  name="atras" className="ml-5 w-40 h-10 bg-blue-500 text-white hover:bg-blue-600 rounded">Anterior</button>
-        <button onClick={props.siguientePaso}  name="siguiente" className="mr-5 w-40 h-10 bg-blue-500 text-white hover:bg-blue-600 rounded">Siguiente</button>
+        <button onClick={props.pasoAtras}  name="atras" className="ml-5 w-40 h-10 bg-lime-600 text-white hover:bg-lime-700 rounded">Anterior</button>
+        <button onClick={props.siguientePaso}  name="siguiente" className="mr-5 w-40 h-10 bg-lime-600 text-white hover:bg-lime-700 rounded">Siguiente</button>
       </div>
   
     </div>
