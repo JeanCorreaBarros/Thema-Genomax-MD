@@ -53,13 +53,16 @@ const Navbar = (props) => {
   return (
     <>
       <Nav className="flex justify-between">
-        <div className="flex justify-around items-center ml-5 gap-x-6 pl-5 ">
-          <div className="w-40 h-12 flex justify-center items-center text-white">
-            <a href={"/"} className={`${sidebar ? "" : "hidden"} `}>
+        <div className="flex justify-around items-center ">
+        <button onClick={showSidebar} className="text-white w-12 h-12 flex justify-center items-center rounded-3xl hover:bg-lime-700 ">
+            <FaIcons.FaBars  />
+          </button>
+          <div className="w-40 h-12 ml-5 flex justify-center items-center text-white">
+            <a href={"/"} className={`${sidebar ? "" : "hidden"} -ml-6 `}>
               GenomaX MD
             </a>
           </div>
-          <div className=" hidden sm:w-12 sm:h-12 sm:flex sm:justify-center  sm:items-center sm:rounded-3xl sm:hover:bg-lime-700 ">
+          <div className=" hidden sm:w-12 sm:ml-6 sm:h-12 sm:flex sm:justify-center  sm:items-center sm:rounded-3xl sm:hover:bg-lime-700 ">
             <NavItem icon={<BiPlusCircle className="opciones" />}>
               <ModalButtonMas />
             </NavItem>

@@ -14,13 +14,14 @@ const SidebarNav = styled.div`
   width: ${({ sidebar }) => (sidebar ? "64px" : "228px")};
   z-index: 1000;
   height: 700px;
-  transition-duration: 0.4s;
+  transition-duration: 0.3s;
   transition-timing-function: ease;
   position: fixed;
   background-color: rgb(38 38 38);
 
   @media (max-width: 500px) {
-    width: ${({ sidebar }) => (sidebar ? "64px" : "78%")};
+    width: ${({ sidebar }) => (sidebar ? "0px" : "78%")};
+    display: ${({ sidebar }) => (sidebar ? "none" : "")};  
   }
 `;
 
@@ -35,11 +36,11 @@ export const Sidebar = ({ sidebar, showSidebar, setSidebar }) => {
         className=""
         style={{ height: `55px`, backgroundColor: `#66A31C` }}
       >
-        <button className="text-white ml-7 mt-5 ">
-          <FaBars onClick={showSidebar} />
+        <button className="text-white ml-6 mt-5 ">
+          <FaBars onClick={showSidebar} style={{marginLeft:`2px`}} />
         </button>
         <p
-          className={`${sidebar ? "hidden" : ""} text-white left-20 relative`}
+          className={`${sidebar ? "hidden" : ""} text-white left-24 relative`}
           style={{marginTop:`-25.7px`}}
         >
           GenomaX MD
@@ -54,7 +55,7 @@ export const Sidebar = ({ sidebar, showSidebar, setSidebar }) => {
         </span>
       </div>
 
-      <div className={`${sidebar ? "pt-2 px-2" : ""} contenedor px-1 pt-5 w-full h-80`}>
+      <div className={`${sidebar ? "pt-2 px-2 " : ""} contenedor px-1 pt-5 w-full h-80`}>
         <ul className={`${sidebar ? "text-xl"  : ""}  flex flex-col space-y-2`} >
           {SidebarData.map((item, index) => {
             return <ItemsMenu sidebar={sidebar} item={item} key={index} />;
